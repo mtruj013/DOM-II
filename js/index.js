@@ -16,10 +16,6 @@ navLinks[3].addEventListener("mouseover", function(event){
 
 
 
-//keydown
-
-
-
 //wheel
 function zoom(event){
     event.preventDefault();
@@ -36,13 +32,10 @@ const headerImg = document.querySelector('.intro img');
 headerImg.addEventListener('wheel', zoom);
 
 
-//drag/drop
-
-
 
 //load
 window.addEventListener('load', (event) =>{
-    logo.textContent = '(Herbie) Fully Loaded';
+    logo.textContent = 'Load Complete';
 })
 let logo = document.querySelector('.nav-container h1');
 
@@ -57,29 +50,40 @@ focusForm.addEventListener('focus', (event) => {
     event.target.style.background = 'red';
 })
 
-//resize
-const resizeHeader = document.querySelectorAll('h2');
-console.log(resizeHeader);
 
-window.onresize = resizeHeader.forEach(element => {
-    element.textContent = 'Resized!';
+
+
+
+
+
+//double click + single click + mouse enter + mouse leave
+const imgSelect = document.querySelectorAll('img');
+imgSelect[0].addEventListener('dblclick', function (){
+    imgSelect[0].setAttribute('src', 'img/herbie-fully-loaded.png')
+});
+imgSelect[1].addEventListener('click', event =>{
+    imgSelect[1].setAttribute('src', 'img/herbie-1.jpg')
+});
+imgSelect[2].addEventListener('mouseenter', e =>{
+    imgSelect[2].setAttribute('src', 'img/herbie-2.jpg')
+});
+imgSelect[3].addEventListener('mouseleave', e =>{
+    imgSelect[3].setAttribute('src', 'img/herbie-3.jpg')
 });
 
-// function windowResize (resizeHeader){
-//     resizeHeader.forEach(element => {
-//         element.textContent = 'Resized!';
-//     });
+
+//mouseout
+
+const textP = document.querySelectorAll('p');
+
+textP[0].addEventListener("mouseout", function(event){
+    event.target.style.color = "pink";
+})
 
 
-// }
-// resizeHeader.forEach(element => {
-//         element.textContent = 'Resized!';
-//     });
+//keydown
+document.addEventListener('keydown', changeColor);
 
-
-// function resized (resizeHeader){
-//     for(let i =0; i < resizeHeader.length; i++){
-//         resizeHeader[i].textContent = 'resized!';
-//     }
-// }
-// window.addEventListener('resize', resized);
+function changeColor(){
+    textP[1].style.color = 'red';
+}
